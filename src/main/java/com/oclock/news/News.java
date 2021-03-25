@@ -1,7 +1,25 @@
 package com.oclock.news;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
+
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+//@Table(name = "news")
 public class News {
-    private int id;
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String title;
     private String content;
+    private Integer category;
+
+    private LocalDate create_date;
 }
