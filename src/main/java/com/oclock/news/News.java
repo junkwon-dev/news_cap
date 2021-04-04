@@ -19,7 +19,7 @@ public class News {
     private Integer id;
     private String title;
     private String content;
-    private Integer category;
+    private String category;
 
     private LocalDate create_date;
 }

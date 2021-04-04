@@ -18,7 +18,7 @@ public class NewsController {
 
     @Transactional
     @GetMapping("/news")
-    public Iterable<News> getNews(@RequestParam(required=false) Integer category){
+    public Iterable<News> getNews(@RequestParam(required=false) String category){
         if (category != null)
             return this.newsService.getNewsByCategory(category);
         else
@@ -27,10 +27,8 @@ public class NewsController {
 
     @Transactional
     @PostMapping
-    public News addNews(News news){
-        News res = this.newsService.createNews();
-
-        return res;
+    public News addNews(@RequestBody News news){
+        return this.newsService.createNews(news);
     }
 
 

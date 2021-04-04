@@ -14,24 +14,19 @@ public class NewsService {
     @Autowired
     NewsDao newsDao;
 
-    public Iterable<News> getNewsByCategory(Integer category){
-        List<News> news = new ArrayList<>();
+    public Iterable<News> getNewsByCategory(String category){
+        List<News> news;
         news = newsDao.findAllByCategory(category);
         return news;
     }
 
     public Iterable<News> getNews(){
-        List<News> news = new ArrayList<>();
+        List<News> news;
         news = newsDao.findAll();
         return news;
     }
 
-    public News createNews(){
-        News news = new News();
-        news.setTitle("어쩌");
-        news.setContent("저쩌구");
-        news.setCreate_date(LocalDate.now());
-        news.setCategory(100);
+    public News createNews(News news){
         newsDao.save(news);
         return news;
     }

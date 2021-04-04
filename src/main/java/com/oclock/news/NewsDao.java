@@ -9,5 +9,5 @@ import java.util.Map;
 
 @Repository
 public interface NewsDao extends JpaRepository<News, Integer> {
-    List<News> findAllByCategory(int category);
+    List<News> findAllByCategory(String category);
 }
